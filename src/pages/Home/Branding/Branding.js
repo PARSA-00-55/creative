@@ -15,7 +15,7 @@ const BrandingWrapper = styled(Box)(({ theme }) => ({
 const Branding = () => {
   return (
     <BrandingWrapper>
-      <Stack spacing={5} sx={{p : 5}}>
+      <Stack spacing={5} sx={{p : 4}}>
         <Typography sx={{
             fontSize: '2.5rem',
             fontWeight: 'bold',
