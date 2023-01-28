@@ -1,15 +1,18 @@
-import { Box, IconButton } from "@mui/material";
+import { Box, Grid, IconButton } from "@mui/material";
 import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CreativeCard from "../../../components/CreativeCard/CreativeCard";
+import { OurWorksData } from "./OurWorksData";
+
 
 const OurWorks = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    console.log(newValue)
+    console.log(newValue);
     setValue(newValue);
   };
 
@@ -18,6 +21,7 @@ const OurWorks = () => {
       {/* heading section */}
       <Box
         sx={{
+          mb: 7,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -42,11 +46,11 @@ const OurWorks = () => {
             onChange={handleChange}
             centered
             sx={{
-              "& 	.MuiTabs-indicator": {
+              "& .MuiTabs-indicator": {
                 display: "none",
               },
               "& .Mui-selected": {
-                color: "primary.green",
+                color: "#7AB259",
                 fontWeight: "bold",
               },
               "& .MuiButtonBase-root": {
@@ -81,6 +85,15 @@ const OurWorks = () => {
           </Box>
         </Box>
       </Box>
+
+      {/* card section */}
+      <Grid container spacing={3} justifyContent="center">
+        {OurWorksData[value].map((image) => (
+          <Grid item>
+            <CreativeCard image={image} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
